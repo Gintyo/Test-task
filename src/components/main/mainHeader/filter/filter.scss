@@ -13,7 +13,6 @@
     border-right: 0;
 
     padding: 9px 20px;
-    padding-right: 6px;
 }
 
 .filter-btn-container {
@@ -58,6 +57,7 @@
         }
     }
     .icon {
+        width: 0;
         position: relative;
         right: 35px;
         font-size: 14px;
