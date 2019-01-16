@@ -7,7 +7,7 @@ const MainNav = () => {
   const getItem = ( text, icon, isActive = false ) => { // icon variable is the fontawesome class without "fa-"
     return (
       <li className = { `main-nav-list_item ${ isActive ? "active" : "" }` }>
-        <span className = { `fa fa-${ icon }` } />
+        <span className = { `icon fa fa-${ icon }` } />
         <span className = "nav-text">
           { text }
         </span>
