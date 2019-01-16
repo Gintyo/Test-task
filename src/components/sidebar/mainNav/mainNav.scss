@@ -1,0 +1,20 @@
+.main-nav-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    &_item {
+        color: #78829d;
+        padding: 13px 20px;
+        margin: 0;
+        &:hover {
+            background-color: #354775;
+        }
+        &.active {
+            color: #fff;
+            background-color: #15a4fa;
+        }
+        .nav-text {
+            margin-left: 10px;
+        }
+    }
+}

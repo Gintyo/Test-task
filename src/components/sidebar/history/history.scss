@@ -1,0 +1,30 @@
+.history-list {
+    margin: 0;
+    padding-left: 0;
+    padding: 30px 20px;
+}
+.history-item {
+    color: #6f7d95;
+    display: flex;
+    margin-bottom: 30px;
+    .icon {
+        margin-top: 4px;
+        margin-right: 10px;
+    }
+}
+.history-description {
+    display: block;
+    max-width: 131px;
+    font-size: 12px;
+}
+
+.history-text {
+    line-height: 18px;
+    margin-bottom: 6px;
+    &_highlighted {
+        color: #97b3ce;
+    }
+}
+.history-time {
+    line-height: 20px;
+}
