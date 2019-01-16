@@ -1,6 +1,7 @@
 .sidebar {
     background-color: #1f2637;
     min-height: 100vh;
+    min-width: 200px;
     &_item {
         border-bottom: 1px solid #323949;
         &:last-child {
