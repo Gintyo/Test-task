@@ -57,6 +57,10 @@
         &::placeholder {
             color: #8c97b2;
         }
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 3px #6d87ff;
+        }
     }
     .icon {
         width: 0;

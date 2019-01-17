@@ -10,4 +10,8 @@
     font-weight: bold;
     font-size: 14px;
     color: #fff;
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 4px #a2b3ff;
+    }
 }
