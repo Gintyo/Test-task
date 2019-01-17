@@ -33,7 +33,7 @@ export default class Item extends Component {
     return (
       <div className = "item" tabIndex = "0">
         <div className = "item_image">
-          <img src = { imageURL } />
+          <img src = { imageURL } alt = {title} />
         </div>
         <h3 className = "item_title">{ title }</h3>
         <span className = "item_author">by { author }</span>

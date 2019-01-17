@@ -25,8 +25,11 @@ export default class FilterResult extends Component {
       const itemsArray = JSON.parse(localStorage.getItem('items'));
       const allItems = itemsArray.map((item) => {
         const { ISBN, ...itemProps } = item;
-
-        return <Item { ...itemProps } />
+        return (
+          <div key = {ISBN}>
+            <Item { ...itemProps } />
+          </div>
+        )
       });
       
       return (
