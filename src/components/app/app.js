@@ -13,7 +13,7 @@ export default class App extends Component {
   }
 
   componentDidUpdate = () => {
-    if (this.state.isPopup){
+    if (this.state.isPopup){  //on popup open set focus on first input
       document.querySelector('.general-page label:first-child input').focus();
     }
   }

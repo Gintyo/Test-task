@@ -11,12 +11,12 @@ const filterButtons = [
 ];
 
 export default class Filter extends Component {
-// = ( {onFilterChange, onSearchChange, filter} ) => 
+
   state = {
-    term: ''
+    term: ''   // searchbar value
   };
 
-  buttons = () => {return (filterButtons.map( ({ name, label }) => {
+  buttons = () => {return (filterButtons.map( ({ name, label }) => { 
     const isActive = name === this.props.filter;
     const classNames = 'btn' + (isActive ? ' active' : '');
     return (
@@ -27,7 +27,7 @@ export default class Filter extends Component {
           { label }
       </button>
     )
-  }))}
+  }))};
 
   onTermChange = (e) => {
     const {onSearchChange = () => {}} = this.props;
@@ -37,6 +37,7 @@ export default class Filter extends Component {
 
     onSearchChange(e.target.value);
   };
+
   render () {
     return (
       <div className = "filter">

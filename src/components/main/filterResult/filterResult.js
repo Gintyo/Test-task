@@ -48,7 +48,7 @@ export default class FilterResult extends Component {
     return arr;
   };
 
-  render(){
+  render() {
     if ( this.state.loaded ) {
       const itemsArray = JSON.parse(localStorage.getItem('items'));
       const filteredArray = this.searchItems( this.filterItems(itemsArray), this.props.search );
