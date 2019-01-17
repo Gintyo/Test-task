@@ -1,0 +1,32 @@
+.item {
+    margin-right: 20px;
+    margin-bottom: 30px;
+    &_image {
+        width: 200px;
+        height: 275px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 4px;
+        img {
+            position: absolute;
+            bottom: 0;
+            right: 100px;                   //horisontal align center
+            transform: translate(50%);      //***
+        }
+    }
+    &_title {
+        margin: 0;
+        margin-top: 15px;
+        font-size: 16px;
+        color: #444c63;
+    }
+    &_author {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #6f7d95;
+    }
+    &_rating {
+        margin-top: 5px;
+        color: #ffab00;
+    }
+}
