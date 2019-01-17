@@ -161,5 +161,5 @@ _jsonExample = [
 
     dataToLocal = async () => {
         await localStorage.setItem('items', JSON.stringify(this._jsonExample));
-  }
+    }
 }
