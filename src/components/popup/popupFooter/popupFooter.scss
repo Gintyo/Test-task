@@ -8,6 +8,9 @@
         &:hover {
             cursor: pointer;
         }
+        &:focus {
+            box-shadow: 0 0 5px #1e364d;
+        }
     }
     .cancel {
         background-color: #97b3ce;

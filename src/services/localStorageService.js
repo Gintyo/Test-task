@@ -19,9 +19,11 @@ _jsonExample = [
         "ISBN": "1",
         "rating": "5",
         "paperback": "",
-        "Summary": "Summary1",
+        "summary": "Summary1",
         "imageURL" : img1,
-        "image" : ""
+        "recent": "true",
+        "popular": "true",
+        "free": "true"
     },
     {
         "title": "Cakes & Bakes",
@@ -31,7 +33,10 @@ _jsonExample = [
         "rating": "5",
         "paperback": "",
         "Summary": "Summary2",
-        "imageURL": img2
+        "imageURL": img2,
+        "recent": "true",
+        "popular": "true",
+        "free": "false"
     },
     {
         "title": "Jamie’s Kitchen",
@@ -41,7 +46,10 @@ _jsonExample = [
         "rating": "4.5",
         "paperback": "",
         "Summary": "Summary3",
-        "imageURL": img3
+        "imageURL": img3,
+        "recent": "true",
+        "popular": "true",
+        "free": "false"
     },
     {
         "title": "Inexpensive Family Meals",
@@ -51,7 +59,10 @@ _jsonExample = [
         "rating": "4",
         "paperback": "",
         "Summary": "Summary4",
-        "imageURL": img4
+        "imageURL": img4,
+        "recent": "true",
+        "popular": "false",
+        "free": "false"
     },
     {
         "title": "Paleo Slow Cooking",
@@ -61,7 +72,10 @@ _jsonExample = [
         "rating": "4.5",
         "paperback": "",
         "Summary": "Summary5",
-        "imageURL": img5
+        "imageURL": img5,
+        "recent": "true",
+        "popular": "false",
+        "free": "false"
     },
     {
         "title": "Cook Like an Italian",
@@ -71,7 +85,10 @@ _jsonExample = [
         "rating": "4",
         "paperback": "",
         "Summary": "Summary6",
-        "imageURL": img6
+        "imageURL": img6,
+        "recent": "true",
+        "popular": "false",
+        "free": "false"
     },
     {
         "title": "Suneeta Vaswani",
@@ -81,7 +98,10 @@ _jsonExample = [
         "rating": "5",
         "paperback": "",
         "Summary": "Summary7",
-        "imageURL": img7
+        "imageURL": img7,
+        "recent": "false",
+        "popular": "false",
+        "free": "false"
     },
     {
         "title": "Jamie Does",
@@ -91,7 +111,10 @@ _jsonExample = [
         "rating": "4",
         "paperback": "8",
         "Summary": "Summary8",
-        "imageURL": img8
+        "imageURL": img8,
+        "recent": "false",
+        "popular": "false",
+        "free": "false"
     },
     {
         "title": "Jamie’s italy",
@@ -101,7 +124,10 @@ _jsonExample = [
         "rating": "5",
         "paperback": "9",
         "Summary": "Summary9",
-        "imageURL": img9
+        "imageURL": img9,
+        "recent": "false",
+        "popular": "false",
+        "free": "false"
     },
     {
         "title": "Vegetables Cookbook",
@@ -111,7 +137,10 @@ _jsonExample = [
         "rating": "3.5",
         "paperback": "",
         "Summary": "Summary10",
-        "imageURL": img10
+        "imageURL": img10,
+        "recent": "false",
+        "popular": "false",
+        "free": "false"
     }
 ];
 

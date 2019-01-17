@@ -5,11 +5,13 @@ import Filter from './filter/filter';
 
 import './mainHeader.scss';
 
-const MainHeader = () => {
+const MainHeader = ( {onFilterChange, onSearchChange, filter} ) => {
     return (
       <div className = "main-header">
         <Header />
-        <Filter />
+        <Filter  onFilterChange = { onFilterChange }
+                 onSearchChange = { onSearchChange }
+                 filter = { filter } />
       </div>
     );
 }

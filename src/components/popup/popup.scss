@@ -14,5 +14,6 @@
 }
 .popup-main {
     display: flex;
+    flex-direction: row-reverse; //for correct tab indexes
     height: 410px;
 }

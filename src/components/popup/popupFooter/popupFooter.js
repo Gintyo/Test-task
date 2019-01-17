@@ -2,11 +2,17 @@ import React from 'react';
 
 import './popupFooter.scss';
 
-const PopupFooter = () => {
+const PopupFooter = ({onPopupCancel, onKeyPressCancel}) => {
   return (
   <div className = "footer">
-    <button className = "btn cancel">Cancel</button>
-    <button type = "submit" className = "btn add">Add book</button>
+    <button className = "btn cancel"
+            onClick = { onPopupCancel }
+            onKeyPress = { onKeyPressCancel }>
+      Cancel
+    </button>
+    <button type = "submit" 
+            className = "btn add"
+            form = "popup-form">Add book</button>
   </div>
   );
 }

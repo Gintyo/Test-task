@@ -12,12 +12,37 @@ export default class App extends Component {
     isPopup: false
   }
 
+  componentDidUpdate = () => {
+    if (this.state.isPopup){
+      document.querySelector('.general-page label:first-child input').focus();
+    }
+  }
+
+  onPopupCancel = () => {
+    this.setState(() => {
+      return {isPopup: false};
+    });
+  }
+
+  onPopupOpen = () => {
+    this.setState(() => {
+      return {isPopup: true};
+    });
+  }
+  
+  onKeyPressOpen = (evt) => {
+    if ( evt.key === 'Enter' ) {
+      this.onPopupOpen();
+    }
+  }
+
   render() {
     return (
       <content className = "application">
-        <Sidebar />
+        <Sidebar onPopupOpen = { this.onPopupOpen }
+                 onKeyPressOpen = { this.onKeyPressOpen } />
         <Main />
-        { this.state.isPopup ? <Popup /> : null }
+        { this.state.isPopup ? <Popup onPopupCancel = { this.onPopupCancel } /> : null }
       </content>
     );
   }
