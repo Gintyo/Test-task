@@ -6,7 +6,7 @@ const Filter = () => {
   return (
     <div className = "filter">
       <div className = "filter-btn-container">
-        <button className = "btn active">All Books</button>
+        <button className = "btn active" tabIndex = "-1">All Books</button>
         <button className = "btn">Most Recent</button>
         <button className = "btn">Most Popular </button>
         <button className = "btn">Free Books</button>

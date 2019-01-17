@@ -31,7 +31,7 @@ export default class Item extends Component {
     const { title, author, rating, imageURL } = this.props;
     const stars = this.generateStars(rating);
     return (
-      <div className = "item">
+      <div className = "item" tabIndex = "0">
         <div className = "item_image">
           <img src = { imageURL } />
         </div>
