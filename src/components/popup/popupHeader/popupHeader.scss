@@ -1,0 +1,16 @@
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 23px 20px;
+    border-bottom: 1px solid #dadfea;
+    &_caption {
+        margin: 0;
+        font-size: 20px;
+        color: #444c63;
+    }
+    &_close {
+        color: #78829d;
+        cursor: pointer;
+    }
+}

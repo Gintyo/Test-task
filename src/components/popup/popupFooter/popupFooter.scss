@@ -1,0 +1,25 @@
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #dadfea;
+    padding: 13px 20px;
+    .btn {
+        padding: 12px 10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .cancel {
+        background-color: #97b3ce;
+        margin-right: 10px;
+        &:hover {
+            background-color: #acc5dd;
+        }
+    }
+    .add {
+        background-color: #f2795a;
+        &:hover {
+            background-color: #f58a6e;
+        }
+    }
+}

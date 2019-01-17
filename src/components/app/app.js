@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Sidebar from '../sidebar/sidebar';
 import Main from '../main/main';
+import Popup from '../popup/popup'
 
 import './app.scss';
 
-const App = () => {
-    return (
-        <content className = "application">
-          <Sidebar />
-          <Main />
-        </content>
-    )
-}
+export default class App extends Component {
 
-export default App;
+  state = {
+    isPopup: false
+  }
+
+  render() {
+    return (
+      <content className = "application">
+        <Sidebar />
+        <Main />
+        { this.state.isPopup ? <Popup /> : null }
+      </content>
+    );
+  }
+}

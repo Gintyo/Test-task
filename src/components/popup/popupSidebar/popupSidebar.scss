@@ -1,0 +1,25 @@
+.popup-sidebar {
+    ul {
+        padding-left: 0;
+        margin-top: 0;
+    }
+    &_item {
+        color: #78829d;
+        font-size: 13px;
+        padding: 13px 20px;
+        width: 160px;
+        &:hover {
+            cursor: pointer;
+            background-color: #e9ecf1;
+        }
+        .icon {
+            font-size: 14px;
+            padding-right: 10px;
+        }
+        &.active {
+            color: #fff;
+            background-color: #97b3ce;
+            cursor: default;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.popupMain {
+    background-color: #fff;
+    width: 100%;
+    padding: 20px 20px;
+    label {
+        color: #444c63;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .nessesary {
+        color: #de4c4c;
+    }
+    input {
+        display: block;
+        border: 1px solid #d1d5e0;
+        width: calc(100% - 20px);
+        border-radius: 2px;
+        margin-top: 10px;
+        margin-bottom: 23px;
+        padding: 5px 10px;
+        &::placeholder {
+            color: #8c97b2;
+        }
+    }
+    .label-container {
+        display: flex;
+        label {
+            width: 100%; 
+        }
+        label:last-child {
+            margin-left: 20px;
+        }
+    }
+}
