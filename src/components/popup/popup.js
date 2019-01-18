@@ -36,21 +36,13 @@ export default class Popup extends Component {
   }
 
   onLabelChange = (evt) => {
+    evt.target.classList.remove('invalid');
     this.addedBook[evt.target.name] = evt.target.value;
   }
 
   onSubmit = (evt) => {
     const time = new Date();
     this.addedBook.time = time;
-    const fields = document.querySelectorAll(`#popup-form fieldset`);
-    const sidebarItems = document.querySelectorAll(`li.popup-sidebar_item`);
-    fields.forEach((fieldset) => fieldset.style.display = "none");
-    fields[0].style.display = "block";
-    document.querySelector('li.popup-sidebar_item.active').classList.remove('active');
-    sidebarItems[0].classList.add('active');
-    
-    evt.preventDefault();
-
     this.setState(() => { return {submitSuccess: true} } );
     this.props.onPopupSubmit(this.addedBook);
   }

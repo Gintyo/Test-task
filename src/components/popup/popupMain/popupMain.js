@@ -2,7 +2,10 @@ import React from 'react';
 
 import './popupMain.scss';
 
+
+
 const PopupMain = ({ onLabelChange }) => {
+
   return (
   <div className = "popupMain">
     <form id = "popup-form" >
@@ -28,19 +31,21 @@ const PopupMain = ({ onLabelChange }) => {
           <span className = "nessesary">*</span> 
           <input type = "text" 
                  placeholder = "Enter Publisher" 
-                 name = "publisher" /> 
+                 name = "publisher"
+                 onChange = { onLabelChange } /> 
         </label>
         <div className = "label-container">
           <label> 
             Paperback
             <input type = "text" 
                    placeholder = "Enter Paperback" 
-                   name = "Paperback" /> 
+                   name = "paperback" /> 
           </label>
           <label> 
             ISBN
             <span className = "nessesary">*</span> 
-            <input type = "text" 
+            <input type = "number" 
+                   pattern="[0-9]{1,10}"
                    placeholder = "Enter ISBN" 
                    name = "ISBN" 
                    onChange = { onLabelChange } /> 
@@ -48,13 +53,14 @@ const PopupMain = ({ onLabelChange }) => {
         </div>
         <label> 
           Summary
-          <input type = "text" placeholder = "Enter Summary" name = "Summary" /> 
+          <input type = "text" placeholder = "Enter Summary" name = "summary" /> 
         </label>
       </fieldset>
+
       <fieldset className = "genre-page">
         <label> 
           Genre
-          <input type = "text" placeholder = "Enter Genre" name = "Genre" /> 
+          <input type = "text" placeholder = "Enter Genre" name = "genre" /> 
         </label>
       </fieldset>
     </form>

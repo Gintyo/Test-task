@@ -13,6 +13,18 @@ const checkDestination = (dest) => {
   }
 }
 
+const TimeAgo = ({ minutesAgo }) => {
+  if ( minutesAgo < 1 ) {
+    return ('less than minute ago');
+  } else if  ( minutesAgo === 1 ) {
+    return ('1 minute ago');
+  } else if ( minutesAgo < 60 ) {
+    return (`${minutesAgo} minutes ago`);
+  } else {
+    return (`${Math.floor(minutesAgo / 60)} hours ago`);
+  }
+}
+
 const getItem = (item) => {
   const { time, title, author, destination } = item;
   const now = new Date(),
@@ -28,7 +40,9 @@ const getItem = (item) => {
           <span className = "history-text_highlighted"> { author } </span>
           {checkDestination(destination)}
         </div>
-        <span className = "history-time">{ Math.floor(timeFromAppend / 1000 / 60) } minutes ago</span>
+        <span className = "history-time">
+          <TimeAgo minutesAgo = { Math.floor(timeFromAppend / 1000 / 60) } />
+        </span>
       </span>
     </li>
   );
