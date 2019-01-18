@@ -2,7 +2,7 @@ import React from 'react';
 
 import './popupMain.scss';
 
-const PopupMain = () => {
+const PopupMain = ({ onLabelChange }) => {
   return (
   <div className = "popupMain">
     <form id = "popup-form" >
@@ -10,27 +10,40 @@ const PopupMain = () => {
         <label> 
           Title
           <span className = "nessesary">*</span> 
-          <input type = "text" placeholder = "Enter Title" name = "Title" /> 
+          <input type = "text" 
+                 placeholder = "Enter Title" 
+                 name = "title" 
+                 onChange = { onLabelChange } /> 
         </label>
         <label> 
           Author
           <span className = "nessesary">*</span> 
-          <input type = "text" placeholder = "Enter Author" name = "Author" /> 
+          <input type = "text" 
+                 placeholder = "Enter Author" 
+                 name = "author" 
+                 onChange = { onLabelChange } /> 
         </label>
         <label> 
           Publisher
           <span className = "nessesary">*</span> 
-          <input type = "text" placeholder = "Enter Publisher" name = "Publisher" /> 
+          <input type = "text" 
+                 placeholder = "Enter Publisher" 
+                 name = "publisher" /> 
         </label>
         <div className = "label-container">
           <label> 
             Paperback
-            <input type = "text" placeholder = "Enter Paperback" name = "Paperback" /> 
+            <input type = "text" 
+                   placeholder = "Enter Paperback" 
+                   name = "Paperback" /> 
           </label>
           <label> 
             ISBN
             <span className = "nessesary">*</span> 
-            <input type = "text" placeholder = "Enter ISBN" name = "ISBN" /> 
+            <input type = "text" 
+                   placeholder = "Enter ISBN" 
+                   name = "ISBN" 
+                   onChange = { onLabelChange } /> 
           </label>
         </div>
         <label> 

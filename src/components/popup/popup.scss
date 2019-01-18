@@ -1,4 +1,4 @@
-.popup {
+.popup-backdrop {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -12,6 +12,8 @@
     max-width: 90%;
     background-color: #eef1f7;
     border-radius: 4px;
+    overflow: hidden;
+    
 }
 .popup-main {
     display: flex;

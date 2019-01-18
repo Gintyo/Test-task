@@ -1,58 +1,56 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './history.scss';
 
-export default class History extends Component {
-
-  state = {
-    history: [{ 
-      name: "Fight Club",
-      author: "Chuck Palahniuk",
-      time: 24,
-      destination: "Must Read Titles",
-    },
-    { 
-      name: "The Trial",
-      author: "Franz Kafka",
-      time: 48,
-      destination: "Must Read Titles",
-    }]
-  }
-
-  getItem = (item) => {
-    const { time, name, author, destination } = item;
+const checkDestination = (dest) => {
+  if ( dest !== undefined ) {
     return (
-      <li className = "history-item" key = { time }>
-        <span className = "icon far fa-clock" />
-        <span className = "history-description">
-          <div className = "history-text">
-            You added <span className = "history-text_highlighted"> { name } </span>
-            by <span className = "history-text_highlighted"> { author } </span>to your
-            <span className = "history-text_highlighted"> { destination } </span>.
-          </div>
-          <span className = "history-time">{ time } minutes ago</span>
-        </span>
-      </li>
-    );
-  }
-
-  getItems = (arr) => {
-    const elements = arr.map((item) => {
-      return this.getItem(item);
-    });
-    return (
-      <ul className = "history-list">
-        {elements}
-      </ul>
+      <React.Fragment>
+        to your
+        <span className = "history-text_highlighted"> { dest }. </span>
+      </React.Fragment>
     )
   }
-  
-  render(){
-    const { history } = this.state;
+}
+
+const getItem = (item) => {
+  const { time, title, author, destination } = item;
+  const now = new Date(),
+        timeFromAppend = now - time;
+  return (
+    <li className = "history-item" key = { time }>
+      <span className = "icon far fa-clock" />
+      <span className = "history-description">
+        <div className = "history-text">
+          You added 
+          <span className = "history-text_highlighted"> { title } </span>
+          by 
+          <span className = "history-text_highlighted"> { author } </span>
+          {checkDestination(destination)}
+        </div>
+        <span className = "history-time">{ Math.floor(timeFromAppend / 1000 / 60) } minutes ago</span>
+      </span>
+    </li>
+  );
+}
+
+const getItems = (arr) => {
+  const elements = arr.map((item) => {
+    return getItem(item);
+  });
+  return (
+    <ul className = "history-list">
+      {elements}
+    </ul>
+  )
+}
+
+const History = ({ history }) => {
     return (
       <div className = "sidebar_item">
-        {this.getItems(history)}
+        { getItems(history) }
       </div>
     )
-  } 
 }
+
+export default History;

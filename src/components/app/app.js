@@ -8,42 +8,71 @@ import './app.scss';
 
 export default class App extends Component {
 
-  state = {
-    isPopup: false
-  }
+  now = new Date();
 
-  componentDidUpdate = () => {
-    if (this.state.isPopup){  //on popup open set focus on first input
-      document.querySelector('.general-page label:first-child input').focus();
-    }
+  state = {
+    isPopup: false,
+    history: [{ 
+      title: "Fight Club",
+      author: "Chuck Palahniuk",
+      time: this.now - (1000 * 60 * 24),
+      destination: "Must Read Titles",
+    },
+    { 
+      title: "The Trial",
+      author: "Franz Kafka",
+      time: this.now - (1000 * 60 * 48),
+      destination: "Must Read Titles",
+    }],
+    readingMode: false
   }
 
   onPopupCancel = () => {
     this.setState(() => {
       return {isPopup: false};
     });
-  }
+  };
 
   onPopupOpen = () => {
     this.setState(() => {
       return {isPopup: true};
     });
-  }
+  };
   
   onKeyPressOpen = (evt) => {
     if ( evt.key === 'Enter' ) {
       this.onPopupOpen();
-    }
-  }
+    };
+  };
+
+  onPopupSubmit = ( item ) => {
+    this.setState(({ history }) => {
+      let arr = [];
+      if ( history.length === 3 ) {
+        arr = [ ...history.slice(0, 2) ];
+      } else {
+        arr = [ ...history.slice() ];
+      }
+      arr.unshift(item);
+      return {
+        history: arr
+      }
+    });
+  };
 
   render() {
     return (
       <content className = "application">
         <Sidebar onPopupOpen = { this.onPopupOpen }
-                 onKeyPressOpen = { this.onKeyPressOpen } />
+                 onKeyPressOpen = { this.onKeyPressOpen } 
+                 history = { this.state.history } />
         <Main />
-        { this.state.isPopup ? <Popup onPopupCancel = { this.onPopupCancel } /> : null }
+        { this.state.isPopup 
+          ? <Popup onPopupCancel = { this.onPopupCancel }
+                   onPopupSubmit = { this.onPopupSubmit } /> 
+          : null 
+        }
       </content>
     );
-  }
+  };
 }

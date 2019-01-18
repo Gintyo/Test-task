@@ -6,13 +6,13 @@ import History from './history/history';
 
 import './sidebar.scss';
 
-const Sidebar = ({ onPopupOpen, onKeyPressOpen }) => {
+const Sidebar = ({ onPopupOpen, onKeyPressOpen, history }) => {
     return (
         <div className = "sidebar">
           <AddABook onPopupOpen = { onPopupOpen }
                     onKeyPressOpen = { onKeyPressOpen } />
           <MainNav />
-          <History />
+          <History history = { history } />
         </div>
     )
 }
