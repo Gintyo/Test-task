@@ -48,10 +48,11 @@
     .general-page {
         label:nth-child(4),
         label:nth-child(5) {
-            width: 50%;
             display: inline-block;
+            vertical-align: text-top;
+            width: 50%;
             input {
-                width: 90%;
+                max-width: 90%;
             }
         }
     }

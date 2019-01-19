@@ -5,6 +5,7 @@ import Main from '../main/main';
 import Popup from '../popup/popup'
 
 import './app.scss';
+import './fontawesome/css/all.css';
 
 export default class App extends Component {
 
