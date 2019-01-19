@@ -11,7 +11,6 @@ import './popup.scss';
 export default class Popup extends Component {
 
   state = {
-    readingMode: false,
     submitSuccess: false,
   }
 
@@ -19,12 +18,12 @@ export default class Popup extends Component {
     title: '',
     author: '',
     publisher: '',
-    ISBN: '',
+    isbn: '',
     time: null
   }
 
   componentDidMount = () => {
-    if (!this.state.readingMode){  //on popup open set focus on first input
+    if (!this.props.readingMode){  //on popup open set focus on first input
       document.querySelector('.general-page label:first-child input').focus();
     };
   };
@@ -52,27 +51,28 @@ export default class Popup extends Component {
       return (
         <div className = "popup-backdrop">
           <div className = "popup-window">
-            <PopupHeader 
-              onPopupCancel = { this.props.onPopupCancel } 
-              onKeyPressCancel = { this.onKeyPressCancel } />
+            <PopupHeader onPopupCancel = { this.props.onPopupCancel } 
+                         onKeyPressCancel = { this.onKeyPressCancel } 
+                         readingMode = { this.props.readingMode } />
             <div className = "popup-main">
-              <PopupMain onLabelChange = { this.onLabelChange } />
+              <PopupMain onLabelChange = { this.onLabelChange }  
+                         readingMode = { this.props.readingMode } 
+                         readedItem = { this.props.readedItem } />
               <PopupSidebar />
             </div>
-            <PopupFooter 
-              onPopupCancel = { this.props.onPopupCancel } 
-              onKeyPressCancel = { this.onKeyPressCancel }
-              onSubmit = { this.onSubmit } />
+            <PopupFooter onPopupCancel = { this.props.onPopupCancel } 
+                         onKeyPressCancel = { this.onKeyPressCancel }
+                         onSubmit = { this.onSubmit }  
+                         readingMode = { this.props.readingMode } />
           </div>
         </div>
       );
     } else {
       return (
         <div className = "popup-backdrop">
-          <SuccessWindow 
-            onPopupCancel = { this.props.onPopupCancel } 
-            onKeyPressCancel = { this.onKeyPressCancel } 
-            item = { this.addedBook } />
+          <SuccessWindow onPopupCancel = { this.props.onPopupCancel } 
+                         onKeyPressCancel = { this.onKeyPressCancel }
+                         item = { this.addedBook } />
         </div>
       );
     }

@@ -2,8 +2,10 @@
     background-color: #fff;
     width: 500px;
     padding: 20px 20px;
+    padding-bottom: 0;
     fieldset {
         border: 0;
+        padding: 0;
     }
     .genre-page {
         display: none;
@@ -12,6 +14,7 @@
         color: #444c63;
         font-size: 13px;
         font-weight: bold;
+        display: block;
     }
     .nessesary {
         color: #de4c4c;
@@ -35,7 +38,6 @@
             -webkit-appearance: none;                   // *
             margin: 0;                                  // *
         }                                               // *
-
         &.invalid {
             border-color: #de4c4c;
             &::placeholder {
@@ -43,13 +45,17 @@
             }
         }
     }
-    .label-container {
-        display: flex;
-        label {
-            width: 100%; 
+    .general-page {
+        label:nth-child(4),
+        label:nth-child(5) {
+            width: 50%;
+            display: inline-block;
+            input {
+                width: 90%;
+            }
         }
-        label:last-child {
-            margin-left: 20px;
-        }
+    }
+    .book-property-title {
+        font-weight: bold;
     }
 }

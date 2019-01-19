@@ -26,7 +26,8 @@ export default class Main extends Component {
                     onSearchChange = { this.onSearchChange }
                     filter = { this.state.filter } />
         <FilterResult filter = { this.state.filter } 
-                      search = { this.state.search } />
+                      search = { this.state.search } 
+                      onReading = { this.props.onReading } />
       </div>
     );
   }

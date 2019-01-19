@@ -53,9 +53,9 @@ export default class FilterResult extends Component {
       const itemsArray = JSON.parse(localStorage.getItem('items'));
       const filteredArray = this.searchItems( this.filterItems(itemsArray), this.props.search );
       const allItems = filteredArray.map((item) => {
-        const { ISBN, ...itemProps } = item;
+        const { isbn, ...itemProps  } = item;
         return (
-          <div key = { ISBN }>
+          <div id = { isbn } key = { isbn } onClick = { this.props.onReading } >
             <Item { ...itemProps } />
           </div>
         )

@@ -2,7 +2,7 @@ import React from 'react';
 
 import './popupFooter.scss';
 
-const PopupFooter = ({onPopupCancel, onKeyPressCancel, onSubmit }) => {
+const PopupFooter = ({onPopupCancel, onKeyPressCancel, onSubmit, readingMode }) => {
 
   const validateOnSubmit = (evt) => {
     evt.preventDefault();
@@ -18,7 +18,7 @@ const PopupFooter = ({onPopupCancel, onKeyPressCancel, onSubmit }) => {
     const title = document.querySelector('input[name = "title"]'),
           author = document.querySelector('input[name = "author"]'),
           publisher = document.querySelector('input[name = "publisher"]'),
-          ISBN = document.querySelector('input[name = "ISBN"]');
+          isbn = document.querySelector('input[name = "isbn"]');
 
     if (title.value === '')
       {
@@ -38,11 +38,11 @@ const PopupFooter = ({onPopupCancel, onKeyPressCancel, onSubmit }) => {
         publisher.classList.add('invalid');
         publisher.placeholder = 'Can\'t be empty';
       }
-    if (ISBN.value === '')
+    if (isbn.value === '')
       {
         valid = false;
-        ISBN.classList.add('invalid');
-        ISBN.placeholder = 'Can\'t be empty';
+        isbn.classList.add('invalid');
+        isbn.placeholder = 'Can\'t be empty';
       }
 
     if ( valid ) { onSubmit() };
@@ -55,12 +55,14 @@ const PopupFooter = ({onPopupCancel, onKeyPressCancel, onSubmit }) => {
             onKeyPress = { onKeyPressCancel }>
       Cancel
     </button>
-    <button type = "submit" 
+    { !readingMode     // in reading Mode do not show the add button
+    ? (<button type = "submit" 
             className = "btn add"
             form = "popup-form"
             onClick = { validateOnSubmit } >
-      Add book
-    </button>
+        Add book
+        </button>) 
+    : null }
   </div>
   );
 }

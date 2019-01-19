@@ -27,9 +27,22 @@ export default class App extends Component {
     readingMode: false
   }
 
+  readedItem = {
+    "title": "Vegetables Cookbook",
+    "author": "Matthew Biggs",
+    "publisher": "SPBbook",
+    "isbn": "10",
+    "rating": "3.5",
+    "paperback": "",
+    "summary": "Summary10",
+    "recent": "false",
+    "popular": "false",
+    "free": "false"
+  }
+
   onPopupCancel = () => {
     this.setState(() => {
-      return {isPopup: false};
+      return {isPopup: false, readingMode: false};
     });
   };
 
@@ -60,16 +73,26 @@ export default class App extends Component {
     });
   };
 
+  onReading = ( evt ) => {
+    const items = JSON.parse(localStorage.getItem('items'));
+    this.readedItem = items.find((item) => item.isbn === evt.currentTarget.id);
+    this.setState(() => {
+      return {isPopup: true, readingMode: true};
+    });
+  }
+
   render() {
     return (
       <content className = "application">
         <Sidebar onPopupOpen = { this.onPopupOpen }
                  onKeyPressOpen = { this.onKeyPressOpen } 
                  history = { this.state.history } />
-        <Main />
+        <Main    onReading = { this.onReading } />
         { this.state.isPopup 
           ? <Popup onPopupCancel = { this.onPopupCancel }
-                   onPopupSubmit = { this.onPopupSubmit } /> 
+                   onPopupSubmit = { this.onPopupSubmit } 
+                   readingMode = { this.state.readingMode } 
+                   readedItem = { this.readedItem }/> 
           : null 
         }
       </content>
