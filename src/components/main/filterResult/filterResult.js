@@ -35,17 +35,20 @@ export default class FilterResult extends Component {
   searchItems(items, search) {
     if (search.length === 0) {
       return items;
-    }
-
-    const arr = items.filter((item) => {
+    } else {
       const keywords = search.split(' ');
-      for (let i = 0; i < keywords.length; i++) {
-        if ( keywords[i] !== '' && item.title.toLowerCase().indexOf(keywords[i].toLowerCase()) > -1 )
-        {return true;}
-      }
-    })
-     
-    return arr;
+      const arr = items.filter((item) => {
+        let isMatches = false;
+        for (let i = 0; i < keywords.length; i++) {
+          if ( keywords[i] !== '' && item.title.toLowerCase().indexOf(keywords[i].toLowerCase()) > -1 ){
+            isMatches = true;
+          }
+        }
+        return isMatches
+      })
+       
+      return arr;
+    }
   };
 
   render() {

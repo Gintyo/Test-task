@@ -7,6 +7,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 760px) {
+        flex-direction: column-reverse;
+    }
 
     border: 1px solid #dadfea;
     border-left: 0;
@@ -21,7 +24,7 @@
         text-transform: none;
 
         margin-right: 3px;
-        padding: 2px 12px;
+        padding: 2px 11px;
         padding-top: 4px;
         border-radius: 12px;
 
@@ -37,6 +40,9 @@
             background-color: #97b3ce;
             color: #fff;
             cursor: default;
+        }
+        &:last-child {
+            margin-right: 0;
         }
     }
 }

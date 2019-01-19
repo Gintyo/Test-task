@@ -1,13 +1,12 @@
 .popup-backdrop {
     position: absolute;
     top: 0;
-    bottom: 0;
     height: 100%;
     width: 100%;
     background-color: rgba($color: #000000, $alpha: 0.8);
 }
 .popup-window {
-    margin: 135px auto;
+    margin: 10% auto;
     width: 700px;
     max-width: 90%;
     background-color: #eef1f7;

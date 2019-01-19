@@ -2,12 +2,20 @@
     margin-right: 20px;
     margin-bottom: 30px;
     &_image {
+        @media screen and (max-width: 879px) {
+            width: 250px;
+            height: 343px;
+        }
         width: 200px;
         height: 275px;
         overflow: hidden;
         position: relative;
         border-radius: 4px;
         img {
+            @media screen and (max-width: 879px) {
+                width: 265px;
+                right: 125px;   
+            }
             position: absolute;
             bottom: 0;
             right: 100px;                   //horisontal align center
