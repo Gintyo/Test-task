@@ -31,14 +31,6 @@
         &::placeholder {
             color: #8c97b2;
         }
-        &[type = "number"] {                            // *
-            -moz-appearance: textfield;                 // *
-        }                                               // *
-        &[type = "number"]::-webkit-outer-spin-button,  // * remove arrows on labels
-        &[type = "number"]::-webkit-inner-spin-button { // *
-            -webkit-appearance: none;                   // *
-            margin: 0;                                  // *
-        }                                               // *
         &.invalid {
             border-color: #de4c4c;
             &::placeholder {

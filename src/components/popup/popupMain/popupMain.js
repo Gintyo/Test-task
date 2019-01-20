@@ -32,8 +32,8 @@ const PopupMain = ({ onLabelChange, readingMode, readedItem }) => {
           <label key = { item.title }> 
             { item.title }
             { item.isNessesary && <span className = "nessesary">*</span> } 
-            <input type = { item.title.toLowerCase() === "isbn" ? "number" : "text" } 
-                   placeholder = {`Enter ${ item.title }`} 
+            <input type = "text"
+                   placeholder = {`Enter ${ item.title }`}
                    name = { item.title.toLowerCase() } 
                    onChange = { onLabelChange } /> 
           </label>
