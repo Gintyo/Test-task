@@ -24,9 +24,9 @@ export default class Popup extends Component {
     paperback: "",
     Summary: "",
     imageURL: noImg,
-    recent: true,
-    popular: false,
-    free: false
+    recent: "true",
+    popular: "false",
+    free: "false"
   }
   
   onKeyPressCancel = (evt) => {
