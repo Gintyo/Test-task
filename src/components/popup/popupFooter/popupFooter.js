@@ -20,31 +20,16 @@ const PopupFooter = ({onPopupCancel, onKeyPressCancel, onSubmit, readingMode }) 
           publisher = document.querySelector('input[name = "publisher"]'),
           isbn = document.querySelector('input[name = "isbn"]');
 
-    if (title.value === '')
-      {
-        valid = false;
-        title.classList.add('invalid');
-        title.placeholder = 'Can\'t be empty';
-      }
-    if (author.value === '')
-      {
-        valid = false;
-        author.classList.add('invalid');
-        author.placeholder = 'Can\'t be empty';
-      }
-    if (publisher.value === '')
-      {
-        valid = false;
-        publisher.classList.add('invalid');
-        publisher.placeholder = 'Can\'t be empty';
-      }
-    if (isbn.value === '')
-      {
-        valid = false;
-        isbn.classList.add('invalid');
-        isbn.placeholder = 'Can\'t be empty';
-      }
-
+    [title, author, publisher, isbn].forEach((item) => {
+      if (item.value.replace(/\s/g, '') === '')
+        {
+          valid = false;
+          item.classList.add('invalid');
+          item.placeholder = 'Can\'t be empty';
+          item.value = '';
+        }
+    } )
+    
     if ( valid ) { onSubmit() };
   }
 
