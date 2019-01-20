@@ -46,14 +46,17 @@
         }
     }
     .general-page {
+        label:nth-child(4) {
+            margin-right: 10px;
+        }
+        label:nth-child(5) {
+            margin-left: 10px;
+        }
         label:nth-child(4),
         label:nth-child(5) {
             display: inline-block;
             vertical-align: text-top;
-            width: 50%;
-            input {
-                max-width: 90%;
-            }
+            width: calc(50% - 10px);
         }
     }
     .book-property-title {
