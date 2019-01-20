@@ -6,7 +6,7 @@ import History from './history/history';
 
 import './sidebar.scss';
 
-const Sidebar = ({ onPopupOpen, onEnterPressOpen, history }) => {
+const Sidebar = ({ onPopupOpen, history }) => {
     return (
         <div className = "sidebar">
           <AddABook onPopupOpen = { onPopupOpen } />

@@ -9,20 +9,20 @@ import './fontawesome/css/all.css';
 
 export default class App extends Component {
 
-  now = new Date();
+  now = new Date(); // for examples
 
   state = {
     isPopup: false,
     history: [{ 
       title: "Fight Club",
       author: "Chuck Palahniuk",
-      time: this.now - (1000 * 60 * 24),
+      time: this.now - (1000 * 60 * 24), // 24 minutes ago
       destination: "Must Read Titles",
     },
     { 
       title: "The Trial",
       author: "Franz Kafka",
-      time: this.now - (1000 * 60 * 48),
+      time: this.now - (1000 * 60 * 48), // 48 minutes ago
       destination: "Must Read Titles",
     }],
     readingMode: false
