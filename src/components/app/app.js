@@ -9,22 +9,9 @@ import './fontawesome/css/all.css';
 
 export default class App extends Component {
 
-  now = new Date(); // for examples
-
   state = {
     isPopup: false,
-    history: [{ 
-      title: "Fight Club",
-      author: "Chuck Palahniuk",
-      time: this.now - (1000 * 60 * 24), // 24 minutes ago
-      destination: "Must Read Titles",
-    },
-    { 
-      title: "The Trial",
-      author: "Franz Kafka",
-      time: this.now - (1000 * 60 * 48), // 48 minutes ago
-      destination: "Must Read Titles",
-    }],
+    
     readingMode: false
   }
 
@@ -52,20 +39,20 @@ export default class App extends Component {
 
   onPopupSubmit = ( item ) => {
     const items = JSON.parse(localStorage.getItem('items'));
-    items.push(item)
-    localStorage.setItem('items', JSON.stringify(items))
-    this.setState(({ history }) => {
-      let arr = [];
-      if ( history.length === 3 ) {
-        arr = [ ...history.slice(0, 2) ];
-      } else {
-        arr = [ ...history.slice() ];
-      }
-      arr.unshift(item);
-      return {
-        history: arr
-      }
-    });
+    items.push(item);
+    localStorage.setItem('items', JSON.stringify(items));
+
+    const time = new Date();
+    item.time = time;
+    const history = JSON.parse(localStorage.getItem('history'));
+    let arr = [];
+    if ( history.length === 3 ) {
+      arr = [ ...history.slice(0, 2) ];
+    } else {
+      arr = [ ...history.slice() ];
+    }
+    arr.unshift(item);
+    localStorage.setItem('history', JSON.stringify(arr));
   };
 
   onReading = ( evt ) => {
@@ -80,8 +67,7 @@ export default class App extends Component {
   render() {
     return (
       <content className = "application">
-        <Sidebar onPopupOpen = { this.onPopupOpen }
-                 history = { this.state.history } />
+        <Sidebar onPopupOpen = { this.onPopupOpen } />
         <Main    onReading = { this.onReading } 
                  onEnterPressReading = { (evt) => this.onEnterDo(evt, this.onReading) } />
         { this.state.isPopup &&

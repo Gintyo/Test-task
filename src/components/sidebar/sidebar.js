@@ -6,12 +6,12 @@ import History from './history/history';
 
 import './sidebar.scss';
 
-const Sidebar = ({ onPopupOpen, history }) => {
+const Sidebar = ({ onPopupOpen }) => {
     return (
         <div className = "sidebar">
           <AddABook onPopupOpen = { onPopupOpen } />
           <MainNav />
-          <History history = { history } />
+          <History />
         </div>
     )
 }
