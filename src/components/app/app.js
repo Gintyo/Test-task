@@ -45,12 +45,14 @@ export default class App extends Component {
     this.setState(() => {
       return {isPopup: false, readingMode: false};
     });
+    document.body.style.overflowY = 'inherit';
   };
 
   onPopupOpen = () => {
     this.setState(() => {
       return {isPopup: true};
     });
+    document.body.style.overflowY = 'hidden';
   };
 
   onEnterDo = (evt, callback) => {
@@ -80,6 +82,7 @@ export default class App extends Component {
     this.setState(() => {
       return {isPopup: true, readingMode: true};
     });
+    document.body.style.overflowY = 'hidden';
   }
 
   render() {
