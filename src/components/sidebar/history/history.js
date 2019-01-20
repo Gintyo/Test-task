@@ -63,11 +63,15 @@ export default class History extends Component {
 
   render() {
     const history = JSON.parse(localStorage.getItem('history'))
-    return (
-      <div className = "sidebar_item">
-        { this.getItems(history) }
-      </div>
-    )
+    if ( history !== null ) {
+      return (
+        <div className = "sidebar_item">
+          { this.getItems(history) }
+        </div>
+      )
+    } else {
+      return null;
+    } 
 
   }
     

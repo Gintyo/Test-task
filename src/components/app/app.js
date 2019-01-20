@@ -75,19 +75,21 @@ export default class App extends Component {
   }
 
   render() {
-    return (
-      <content className = "application">
-        <Sidebar onPopupOpen = { this.onPopupOpen } />
-        <Main    onReading = { this.onReading } 
-                 onEnterPressReading = { (evt) => this.onEnterDo(evt, this.onReading) }
-                 loaded = { this.state.loaded } />
-        { this.state.isPopup &&
-          <Popup onPopupCancel = { this.onPopupCancel }
-                 onPopupSubmit = { this.onPopupSubmit } 
-                 readingMode = { this.state.readingMode } 
-                 readedItem = { this.readedItem }/>
-        }
-      </content>
-    );
+    if ( this.state.loaded ) {
+      return (
+        <content className = "application">
+          <Sidebar onPopupOpen = { this.onPopupOpen } />
+          <Main    onReading = { this.onReading } 
+                  onEnterPressReading = { (evt) => this.onEnterDo(evt, this.onReading) }
+                  loaded = { this.state.loaded } />
+          { this.state.isPopup &&
+            <Popup onPopupCancel = { this.onPopupCancel }
+                  onPopupSubmit = { this.onPopupSubmit } 
+                  readingMode = { this.state.readingMode } 
+                  readedItem = { this.readedItem }/>
+          }
+        </content>
+      );
+    } else return null;
   };
 }
