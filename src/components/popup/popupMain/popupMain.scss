@@ -11,7 +11,7 @@
     .genre-page {
         display: none;
     }
-    label {
+    .prop-label {
         color: #444c63;
         font-size: 13px;
         font-weight: bold;
@@ -20,14 +20,18 @@
     .nessesary {
         color: #de4c4c;
     }
-    input {
+    .item-prop {
         display: block;
         border: 1px solid #d1d5e0;
         width: calc(100% - 20px);
+        height: 16px;
         border-radius: 2px;
         margin-top: 10px;
         margin-bottom: 23px;
         padding: 5px 10px;
+        color: #8c97b2;
+        font-size: 13px;
+        font-weight: normal;
         &::placeholder {
             color: #8c97b2;
         }
@@ -39,14 +43,14 @@
         }
     }
     .general-page {
-        label:nth-child(4) {
+        .prop-label:nth-child(4) {
             margin-right: 10px;
         }
-        label:nth-child(5) {
+        .prop-label:nth-child(5) {
             margin-left: 10px;
         }
-        label:nth-child(4),
-        label:nth-child(5) {
+        .prop-label:nth-child(4),
+        .prop-label:nth-child(5) {
             display: inline-block;
             vertical-align: text-top;
             width: calc(50% - 10px);

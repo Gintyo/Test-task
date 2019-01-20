@@ -29,10 +29,11 @@ const PopupMain = ({ onLabelChange, readingMode, readedItem }) => {
     const itemList = itemsArray.map(( item ) => {
       if ( !readingMode ) {
         return (
-          <label key = { item.title }> 
+          <label key = { item.title } className = "prop-label" > 
             { item.title }
             { item.isNessesary && <span className = "nessesary">*</span> } 
             <input type = "text"
+                   className = "item-prop"
                    placeholder = {`Enter ${ item.title }`}
                    name = { item.title.toLowerCase() } 
                    onChange = { onLabelChange } /> 
@@ -40,10 +41,12 @@ const PopupMain = ({ onLabelChange, readingMode, readedItem }) => {
         )
       } else {
         return (
-          <p  key = {item.title+ "-read"} >
-            <span className = "book-property-title">{ item.title }: </span> 
-            { readedItem[item.title.toLowerCase()] }
-          </p>
+          <div  key = {item.title+ "-read"} className = "prop-label">
+            { item.title }:
+            <div className = "item-prop">
+              { readedItem[item.title.toLowerCase()] }
+            </div>
+          </div>
         )
       }
       
