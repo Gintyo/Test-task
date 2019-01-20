@@ -58,7 +58,9 @@ export default class FilterResult extends Component {
       const allItems = filteredArray.map((item) => {
         const { isbn, ...itemProps  } = item;
         return (
-          <div id = { isbn } key = { isbn } onClick = { this.props.onReading } >
+          <div id = { isbn } key = { isbn } 
+               onClick = { this.props.onReading } 
+               onKeyPress = { this.props.onEnterPressReading } >
             <Item { ...itemProps } />
           </div>
         )

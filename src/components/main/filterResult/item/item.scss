@@ -2,7 +2,7 @@
     margin-right: 20px;
     margin-bottom: 30px;
     &_image {
-        @media screen and (max-width: 879px) {
+        @media screen and (max-width: 896px) {
             width: 250px;
             height: 343px;
         }
@@ -12,7 +12,7 @@
         position: relative;
         border-radius: 4px;
         img {
-            @media screen and (max-width: 879px) {
+            @media screen and (max-width: 896px) {
                 width: 265px;
                 right: 125px;   
             }

@@ -21,7 +21,7 @@ const PopupMain = ({ onLabelChange, readingMode, readedItem }) => {
       { title: 'Summary',
         isNessesary: false }],
     secondPage: [
-      { title: 'Summary',
+      { title: 'Genre',
         isNessesary: false }
     ]}
 
@@ -29,9 +29,9 @@ const PopupMain = ({ onLabelChange, readingMode, readedItem }) => {
     const itemList = itemsArray.map(( item ) => {
       if ( !readingMode ) {
         return (
-          <label key = {item.title}> 
+          <label key = { item.title }> 
             { item.title }
-            { item.isNessesary ? <span className = "nessesary">*</span> : null } 
+            { item.isNessesary && <span className = "nessesary">*</span> } 
             <input type = { item.title.toLowerCase() === "isbn" ? "number" : "text" } 
                    placeholder = {`Enter ${ item.title }`} 
                    name = { item.title.toLowerCase() } 

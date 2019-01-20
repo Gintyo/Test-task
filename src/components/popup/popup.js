@@ -21,17 +21,23 @@ export default class Popup extends Component {
     isbn: '',
     time: null
   }
+  
+  onKeyPressCancel = (evt) => {
+    if ( evt.keyCode === 27 ) {
+      this.props.onPopupCancel();
+    }
+  }
 
   componentDidMount = () => {
     if (!this.props.readingMode){  //on popup open set focus on first input
       document.querySelector('.general-page label:first-child input').focus();
     };
+    document.addEventListener('keydown', this.onKeyPressCancel);
+    window.scrollTo(0, 0);
   };
-  
-  onKeyPressCancel = (evt) => {
-    if ( evt.key === 'Enter' ) {
-      this.props.onPopupCancel();
-    }
+
+  componentWillUnmount = () => {
+    document.removeEventListener('keydown', this.onKeyPressCancel);
   }
 
   onLabelChange = (evt) => {

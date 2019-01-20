@@ -52,10 +52,10 @@ export default class App extends Component {
       return {isPopup: true};
     });
   };
-  
-  onKeyPressOpen = (evt) => {
+
+  onEnterDo = (evt, callback) => {
     if ( evt.key === 'Enter' ) {
-      this.onPopupOpen();
+      callback(evt);
     };
   };
 
@@ -86,15 +86,14 @@ export default class App extends Component {
     return (
       <content className = "application">
         <Sidebar onPopupOpen = { this.onPopupOpen }
-                 onKeyPressOpen = { this.onKeyPressOpen } 
                  history = { this.state.history } />
-        <Main    onReading = { this.onReading } />
-        { this.state.isPopup 
-          ? <Popup onPopupCancel = { this.onPopupCancel }
-                   onPopupSubmit = { this.onPopupSubmit } 
-                   readingMode = { this.state.readingMode } 
-                   readedItem = { this.readedItem }/> 
-          : null 
+        <Main    onReading = { this.onReading } 
+                 onEnterPressReading = { (evt) => this.onEnterDo(evt, this.onReading) } />
+        { this.state.isPopup &&
+          <Popup onPopupCancel = { this.onPopupCancel }
+                 onPopupSubmit = { this.onPopupSubmit } 
+                 readingMode = { this.state.readingMode } 
+                 readedItem = { this.readedItem }/>
         }
       </content>
     );
