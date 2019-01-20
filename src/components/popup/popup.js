@@ -5,6 +5,7 @@ import PopupSidebar from './popupSidebar/popupSidebar';
 import PopupMain from './popupMain/popupMain';
 import PopupFooter from './popupFooter/popupFooter';
 import SuccessWindow from './successWindow/successWindow'
+import noImg from '../../img/no-img.jpg'
 
 import './popup.scss';
 
@@ -15,11 +16,17 @@ export default class Popup extends Component {
   }
 
   addedBook = {
-    title: '',
-    author: '',
-    publisher: '',
-    isbn: '',
-    time: null
+    title: "",
+    author: "",
+    publisher: "",
+    isbn: "",
+    rating: "",
+    paperback: "",
+    Summary: "",
+    imageURL: noImg,
+    recent: true,
+    popular: false,
+    free: false
   }
   
   onKeyPressCancel = (evt) => {

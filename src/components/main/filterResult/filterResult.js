@@ -16,7 +16,7 @@ export default class FilterResult extends Component {
   componentDidMount = async () => {
     if ( !this.state.loaded ){
       await this.localStorageService.dataToLocal();
-      this.setState((state) => {return {loaded: true}});
+      this.setState(() => {return {loaded: true}} );
     }
   }
 

@@ -28,18 +28,7 @@ export default class App extends Component {
     readingMode: false
   }
 
-  readedItem = {
-    "title": "Vegetables Cookbook",
-    "author": "Matthew Biggs",
-    "publisher": "SPBbook",
-    "isbn": "10",
-    "rating": "3.5",
-    "paperback": "",
-    "summary": "Summary10",
-    "recent": "false",
-    "popular": "false",
-    "free": "false"
-  }
+  readedItem = {}
 
   onPopupCancel = () => {
     this.setState(() => {
@@ -62,6 +51,9 @@ export default class App extends Component {
   };
 
   onPopupSubmit = ( item ) => {
+    const items = JSON.parse(localStorage.getItem('items'));
+    items.push(item)
+    localStorage.setItem('items', JSON.stringify(items))
     this.setState(({ history }) => {
       let arr = [];
       if ( history.length === 3 ) {
