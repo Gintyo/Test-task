@@ -1,24 +1,10 @@
 import React, { Component } from 'react';
 
-import LocalStorageService from '../../../services/localStorageService'
 import Item from './item/item'
 
 import './filterResult.scss';
 
 export default class FilterResult extends Component {
-
-  state = {
-    loaded: false
-  }
-
-  localStorageService = new LocalStorageService();
-
-  componentDidMount = async () => {
-    if ( !this.state.loaded ){
-      await this.localStorageService.dataToLocal();
-      this.setState(() => {return {loaded: true}} );
-    }
-  }
 
   filterItems = (items) => {
     if ( this.props.filter === 'all' ) {
@@ -52,7 +38,7 @@ export default class FilterResult extends Component {
   };
 
   render() {
-    if ( this.state.loaded ) {
+    if ( this.props.loaded ) {
       const itemsArray = JSON.parse(localStorage.getItem('items'));
       const filteredArray = this.searchItems( this.filterItems(itemsArray), this.props.search );
       const allItems = filteredArray.map((item) => {

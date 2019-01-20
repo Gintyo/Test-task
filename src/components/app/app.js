@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import LocalStorageService from '../../services/localStorageService'
 import Sidebar from '../sidebar/sidebar';
 import Main from '../main/main';
 import Popup from '../popup/popup'
@@ -10,12 +11,21 @@ import './fontawesome/css/all.css';
 export default class App extends Component {
 
   state = {
+    loaded: false,
     isPopup: false,
-    
     readingMode: false
   }
 
   readedItem = {}
+
+  localStorageService = new LocalStorageService();
+  
+  componentDidMount = async () => {
+    if ( !this.state.loaded ){
+      await this.localStorageService.dataToLocal();
+      this.setState(() => {return {loaded: true}} );
+    }
+  }
 
   onPopupCancel = () => {
     this.setState(() => {
@@ -69,7 +79,8 @@ export default class App extends Component {
       <content className = "application">
         <Sidebar onPopupOpen = { this.onPopupOpen } />
         <Main    onReading = { this.onReading } 
-                 onEnterPressReading = { (evt) => this.onEnterDo(evt, this.onReading) } />
+                 onEnterPressReading = { (evt) => this.onEnterDo(evt, this.onReading) }
+                 loaded = { this.state.loaded } />
         { this.state.isPopup &&
           <Popup onPopupCancel = { this.onPopupCancel }
                  onPopupSubmit = { this.onPopupSubmit } 

@@ -11,7 +11,8 @@ import img10 from '../img/book-cover-10-min.jpg';
 
 export default class LocalStorageService {
     
-_jsonExample = [
+_jsonExample = {
+    items : [
     {
         "title": "Jewels of Nizam",
         "author": "Geeta Devi",
@@ -141,22 +142,19 @@ _jsonExample = [
         "recent": "false",
         "popular": "false",
         "free": "false"
-    }
-];
-
-now = new Date(); // for examples
-_history = [{ 
-    title: "Fight Club",
-    author: "Chuck Palahniuk",
-    time: new Date(this.now - (1000 * 60 * 24)), // 24 minutes ago
-    destination: "Must Read Titles",
-  },
-  { 
-    title: "The Trial",
-    author: "Franz Kafka",
-    time: new Date(this.now - (1000 * 60 * 48)), // 48 minutes ago
-    destination: "Must Read Titles",
-  }]
+    }],
+    history: [{ 
+        title: "Fight Club",
+        author: "Chuck Palahniuk",
+        time: new Date(this.now - (1000 * 60 * 24)), // 24 minutes ago
+        destination: "Must Read Titles",
+      },
+      { 
+        title: "The Trial",
+        author: "Franz Kafka",
+        time: new Date(this.now - (1000 * 60 * 48)), // 48 minutes ago
+        destination: "Must Read Titles",
+      }]}
 
     // getImage(url, key) {
     //     var xhr = new XMLHttpRequest();
@@ -174,7 +172,7 @@ _history = [{
     // }
 
     dataToLocal = async () => {
-        await localStorage.setItem('items', JSON.stringify(this._jsonExample));
-        await localStorage.setItem('history', JSON.stringify(this._history));
+        await localStorage.setItem('items',JSON.stringify(this._jsonExample.items));
+        await localStorage.setItem('history',JSON.stringify(this._jsonExample.history));
     }
 }
