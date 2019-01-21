@@ -146,7 +146,9 @@ _jsonExample = {
   history: []}
 
   dataToLocal = async () => {
-    localStorage.setItem('items',JSON.stringify(this._jsonExample.items));
+    if ( localStorage.getItem('items') === null ){ // for example of adding in localStorage
+      localStorage.setItem('items',JSON.stringify(this._jsonExample.items));
+    }
     if ( localStorage.getItem('history') === null ){
       localStorage.setItem('history',JSON.stringify(this._jsonExample.history));
     }
