@@ -22,8 +22,12 @@ export default class History extends Component {
       return ('1 minute ago');
     } else if ( minutesAgo < 60 ) {
       return (`${minutesAgo} minutes ago`);
-    } else {
+    } else if ( Math.floor(minutesAgo / 60) < 24 ) {
       return (`${Math.floor(minutesAgo / 60)} hours ago`);
+    } else if ( Math.floor(minutesAgo / 60 / 24) === 1 ) {
+      return (`a day ago`);
+    } else {
+      return (`${Math.floor(minutesAgo / 60 / 24)} days ago`);
     }
   }
   
