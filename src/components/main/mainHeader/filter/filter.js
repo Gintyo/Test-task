@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './filter.scss';
 
@@ -10,38 +10,35 @@ const filterButtons = [
   { name: 'free', label: 'Free Books' }
 ];
 
-export default class Filter extends Component {
+  
+const Filter = ({ onFilterChange, onSearchChange, filter }) => {
 
-  state = {
-    term: ''   // searchbar value
-  };
-
-  buttons = () => {return (filterButtons.map( ({ name, label }) => { 
-    const isActive = name === this.props.filter;
+  const buttons = () => {return (filterButtons.map( ({ name, label }) => { 
+    const isActive = name === filter;
     const classNames = 'btn' + (isActive ? ' active' : '');
     return (
       <button key = { name }
               className = { classNames } 
               disabled = { isActive ? true : false }
-              onClick = { () => this.props.onFilterChange(name) }>
+              onClick = { () => onFilterChange(name) }>
           { label }
       </button>
     )
   }))};
 
-  render () {
-    return (
-      <div className = "filter">
-        <div className = "filter-btn-container">
-          { this.buttons() }
-        </div>
-        <div className = "filter-searchbar-container">
-          <input type = "text" className = "filter_searchbar" 
-                 placeholder = "Enter Keywords" 
-                 onChange = { (evt) => this.props.onSearchChange(evt.target.value) } />
-          <span className = "icon fa fa-search" />
-        </div>
+  return (
+    <div className = "filter">
+      <div className = "filter-btn-container">
+        { buttons() }
       </div>
-    );
-  }
+      <div className = "filter-searchbar-container">
+        <input type = "text" className = "filter_searchbar" 
+                placeholder = "Enter Keywords" 
+                onChange = { (evt) => onSearchChange(evt.target.value) } />
+        <span className = "icon fa fa-search" />
+      </div>
+    </div>
+  );
 }
+
+export default Filter;
