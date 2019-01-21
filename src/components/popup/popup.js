@@ -26,7 +26,8 @@ export default class Popup extends Component {
     imageURL: noImg,
     recent: "true",
     popular: "false",
-    free: "false"
+    free: "false",
+    destination: "Must Read Titles"
   }
   
   onKeyPressCancel = (evt) => {

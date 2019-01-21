@@ -143,23 +143,22 @@ _jsonExample = {
       "popular": "false",
       "free": "false"
   }],
-  history: [{ 
-    title: "Fight Club",
-    author: "Chuck Palahniuk",
-    time: new Date(new Date() - (1000 * 60 * 24)), // 24 minutes ago
-    destination: "Must Read Titles"
-  },
-  { 
-    title: "The Trial",
-    author: "Franz Kafka",
-    time: new Date(new Date() - (1000 * 60 * 48)), // 48 minutes ago
-    destination: "Must Read Titles"
-  }
-]}
+//   history: [{ 
+//     title: "Fight Club",
+//     author: "Chuck Palahniuk",
+//     time: new Date(new Date() - (1000 * 60 * 24)), // 24 minutes ago
+//     destination: "Must Read Titles"
+//   },
+//   { 
+//     title: "The Trial",
+//     author: "Franz Kafka",
+//     time: new Date(new Date() - (1000 * 60 * 48)), // 48 minutes ago
+//     destination: "Must Read Titles"
+//   }
+// ]
+}
 
   dataToLocal = () => {
-    localStorage.clear();
     localStorage.setItem('items',JSON.stringify(this._jsonExample.items));
-    localStorage.setItem('history',JSON.stringify(this._jsonExample.history));
   }
 }
