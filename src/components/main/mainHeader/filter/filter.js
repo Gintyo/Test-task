@@ -29,15 +29,6 @@ export default class Filter extends Component {
     )
   }))};
 
-  onTermChange = (e) => {
-    const {onSearchChange = () => {}} = this.props;
-    this.setState({
-      term: e.target.value
-    });
-
-    onSearchChange(e.target.value);
-  };
-
   render () {
     return (
       <div className = "filter">
@@ -47,7 +38,7 @@ export default class Filter extends Component {
         <div className = "filter-searchbar-container">
           <input type = "text" className = "filter_searchbar" 
                  placeholder = "Enter Keywords" 
-                 onChange = { this.onTermChange } />
+                 onChange = { (evt) => this.props.onSearchChange(evt.target.value) } />
           <span className = "icon fa fa-search" />
         </div>
       </div>
