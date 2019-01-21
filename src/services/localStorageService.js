@@ -145,8 +145,10 @@ _jsonExample = {
   }],
   history: []}
 
-  dataToLocal = () => {
+  dataToLocal = async () => {
     localStorage.setItem('items',JSON.stringify(this._jsonExample.items));
-    localStorage.setItem('history',JSON.stringify(this._jsonExample.history));
+    if ( localStorage.getItem('history') === null ){
+      localStorage.setItem('history',JSON.stringify(this._jsonExample.history));
+    }
   }
 }
