@@ -49,11 +49,16 @@ export default class Popup extends Component {
   }
 
   onLabelChange = (evt) => {
+    const validateIsbn = (target) => {
+      const textLength = target.value.length;
+      if ( textLength > 0 &&  (isNaN(target.value) || target.value[textLength-1] === '.') ){  // remove last char if not number
+        target.value = target.value.slice(0 ,textLength-1);
+        validateIsbn(target);
+      }
+    }
     if (evt.currentTarget.name === "isbn")
     {
-      const textLength = evt.currentTarget.value.length;
-      if ( textLength > 0 &&  (isNaN(evt.currentTarget.value) || evt.currentTarget.value[textLength-1] === '.') )  // remove last char if not number
-        evt.currentTarget.value = evt.currentTarget.value.slice(0 ,textLength-1);
+      validateIsbn(evt.currentTarget)
     }
     evt.target.classList.remove('invalid');
     this.addedBook[evt.target.name] = evt.target.value;
