@@ -21,7 +21,7 @@ const Filter = ({ onFilterChange, onSearchChange, filter }) => {
               className = { classNames } 
               disabled = { isActive ? true : false }
               onClick = { () => onFilterChange(name) }>
-          { label }
+        { label }
       </button>
     )
   }))};
